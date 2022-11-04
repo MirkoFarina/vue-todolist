@@ -29,25 +29,32 @@
             <div class="logo">
                 <img src="img/logo.png" alt="Logo">
             </div>
-            <!-- <label for="type">
+            <label for="type">
                 Scegli il modo in cui vuoi visualizzare la tua To Do List
             </label>
-            <select name="choseType" id="type">
+            <select name="choseType" id="type" class="mb-5" v-model="selectType">
+                <option value="" disabled selected>Select your option</option>
                 <option value="card">
                     card
                 </option>
                 <option value="list">
                     list
                 </option>
-            </select> -->
+            </select>
         </header>
 
         <main>
             <div class="container ">
-                <div class="row">
+                <div 
+                v-if="selectType"
+                class="row">
                     <div class="col-12 d-flex justify-content-center mb-5">
-                        <input type="text" placeholder="Inserisci le cose da fare">
-                        <button>Inserisci</button>
+                        <input 
+                        @keypress.enter="pushTask"
+                        type="text" 
+                        laceholder="Inserisci le cose da fare"
+                        v-model.trim="newTask" >
+                        <button @click="pushTask">Inserisci</button>
                     </div>
                     <div class="col-12">
                         <p class="error">
@@ -55,7 +62,9 @@
                         </p>
                     </div>
                 </div>
-                <div class="row">
+                <div 
+                v-if="tasks.length && selectType === 'list'" 
+                class="row mb-5">
                     <div class="col-12 content-todo mf-list">
                         <ul class="p-0">
                             <li 
@@ -78,16 +87,31 @@
 
 
                 <!-- grid whit card -->
-                <!-- <div class="row d-flex flex-wrap content-todo">
-                    <div class="col-4  mf-card">
-                        <div class="card">
-                            <div class="card-body text-center">
-                            <h2 class="card-title"></h2>
-                            <i class="fa-solid fa-trash-can"></i>
+                <div 
+                v-if="tasks.length && selectType === 'card'"
+                class="row d-flex flex-wrap content-todo mb-5">
+                    <div v-for="(task, index) in tasks" class="col-4  mf-card">
+                        <div class="card h-100" @click="task.toDo = !task.toDo">
+                            <div class="card-body text-center d-flex flex-column justify-content-between">
+                            <h2 
+                            :class="{'do': task.toDo}"
+                            class="card-title mb-4">
+                                {{task.nome}}
+                            </h2>
+                            <i 
+                            @click.stop="removeTask(index)"
+                            class="fa-solid fa-trash-can"></i>
                             </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
+
+                <h3 
+                v-if="!tasks.length"
+                class="text-center">
+                   <span class="text-danger"> BRAVO!</span> <br>
+                    per ora non hai niente altro da fare &#8987;
+                </h3>
             </div>
         </main>
 
