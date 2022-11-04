@@ -33,7 +33,9 @@
                 Scegli il modo in cui vuoi visualizzare la tua To Do List
             </label>
             <select name="choseType" id="type" class="mb-5" v-model="selectType">
-                <option value="" disabled selected>Select your option</option>
+                <option value="" disabled selected>
+                    Seleziona la tua scelta
+                </option>
                 <option value="card">
                     card
                 </option>
@@ -60,6 +62,13 @@
                         <p class="error">
                             {{errorMsg}}
                         </p>
+                    
+                        <h1  v-if="tasks.length">
+                            COSE DA FARE OGGI: 
+                            <span class="badge bg-success">
+                                {{tasks.length}}
+                            </span>
+                        </h1>
                     </div>
                 </div>
                 <div 

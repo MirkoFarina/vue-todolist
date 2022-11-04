@@ -38,6 +38,8 @@ header label {
 header select {
     padding: 10px 20px;
     background-color: rgba(255, 255, 255, .4);
+    text-align: center;
+    text-transform: uppercase;
 }
 
 main input, main button {
@@ -52,6 +54,12 @@ main input, main button {
     font-size: 1.3rem;
 }
 
+.cose-da-fare {
+    display: inline-block;
+    font-size: 1.3rem;
+    border-radius: 50%;
+}
+
 .content-todo {
     padding: 40px;
     background-color: rgba(0, 0, 0, .1);
@@ -59,11 +67,12 @@ main input, main button {
 
 .do {
     text-decoration: line-through;
-    color: green;
+    color: #198754;
 }
 
 i {
     font-size: 2rem;
+    color: red;
 }
 
 .mf-card {

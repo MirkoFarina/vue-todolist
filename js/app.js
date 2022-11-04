@@ -40,7 +40,6 @@ createApp ({
             }else {
                 isPresent = this.tasks.find((task) => {
                     return   task.nome === this.newTask.toLowerCase();
-                   
                 })
             }
             if(isPresent) {
