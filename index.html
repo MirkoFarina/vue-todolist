@@ -85,8 +85,8 @@
                                 </span>
                                 <i  
                                 @click.stop="removeTask(index)"
+                                :class="{'green': task.toDo}"
                                 class="fa-solid fa-trash-can">
-
                                 </i>
                             </li>
                         

@@ -74,6 +74,9 @@ i {
     font-size: 2rem;
     color: red;
 }
+.green {
+    color: #198754;
+}
 
 .mf-card {
     margin-bottom: 20px;
