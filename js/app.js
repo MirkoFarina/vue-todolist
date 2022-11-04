@@ -10,13 +10,18 @@ createApp ({
                 },
                 {
                     nome: 'Aggiustare la porta',
-                    toDo: false
+                    toDo: true
                 },
                 {
                     nome: 'Studiare React',
                     toDo: false
                 }
             ]
+        }
+    },
+    methods: {
+        removeTask(index){
+            
         }
     }
 }).mount('#app')

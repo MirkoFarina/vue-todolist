@@ -57,9 +57,16 @@
                     <div class="col-12 content-todo mf-list">
                         <ul class="p-0">
                             <li 
+                            v-for="(task, index) in tasks"
                             class="d-flex justify-content-between">
-                                <span></span>
-                                <i class="fa-solid fa-trash-can"></i>
+                                <span :class="{'do': task.toDo}">
+                                    {{task.nome}}
+                                </span>
+                                <i  
+                                @click="removeTask(index)"
+                                class="fa-solid fa-trash-can">
+
+                                </i>
                             </li>
                         
                         </ul>

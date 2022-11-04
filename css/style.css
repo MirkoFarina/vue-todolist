@@ -56,6 +56,12 @@ main input, main button {
     background-color: rgba(0, 0, 0, .1);
 }
 
+.do {
+    text-decoration: line-through;
+    color: green;
+}
+
 i {
     font-size: 2rem;
 }
+
