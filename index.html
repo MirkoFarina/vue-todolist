@@ -108,6 +108,7 @@
                                 {{task.nome}}
                             </h2>
                             <i 
+                            :class="{'green': task.toDo}"
                             @click.stop="removeTask(index)"
                             class="fa-solid fa-trash-can"></i>
                             </div>
