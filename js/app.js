@@ -4,18 +4,18 @@ createApp ({
     data(){
         return {
             tasks: [
-                {
-                    nome: 'scendere a comprare il latte',
-                    toDo: false
-                },
-                {
-                    nome: 'aggiustare la porta',
-                    toDo: true
-                },
-                {
-                    nome: 'studiare react',
-                    toDo: false
-                }
+                 {
+                     nome: 'scendere a comprare il latte',
+                     toDo: false
+                 },
+                 {
+                     nome: 'aggiustare la porta',
+                     toDo: true
+                 },
+                 {
+                     nome: 'studiare react',
+                     toDo: false
+                 }
             ],
             errorMsg: '',
             newTask: '',
