@@ -50,20 +50,23 @@
                         <button>Inserisci</button>
                     </div>
                     <div class="col-12">
-                        <p class="error"></p>
+                        <p class="error">
+                            {{errorMsg}}
+                        </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 content-todo mf-list">
                         <ul class="p-0">
                             <li 
+                            @click="task.toDo = !task.toDo"
                             v-for="(task, index) in tasks"
                             class="d-flex justify-content-between">
                                 <span :class="{'do': task.toDo}">
                                     {{task.nome}}
                                 </span>
                                 <i  
-                                @click="removeTask(index)"
+                                @click.stop="removeTask(index)"
                                 class="fa-solid fa-trash-can">
 
                                 </i>
