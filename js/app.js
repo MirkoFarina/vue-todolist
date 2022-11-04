@@ -5,15 +5,15 @@ createApp ({
         return {
             tasks: [
                 {
-                    nome: 'Scendere a comprare il latte',
+                    nome: 'scendere a comprare il latte',
                     toDo: false
                 },
                 {
-                    nome: 'Aggiustare la porta',
+                    nome: 'aggiustare la porta',
                     toDo: true
                 },
                 {
-                    nome: 'Studiare React',
+                    nome: 'studiare react',
                     toDo: false
                 }
             ],
@@ -32,18 +32,28 @@ createApp ({
         },
         pushTask(){
             this.errorMsg = '';
+            let isPresent = '';
             if(this.newTask.length < 5) {
                 this.errorMsg = 'Attenzione! devi inserire almeno 5 caratteri';
                 this.newTask = '';
                 return;
             }else {
-                const newObjTask = {
-                    nome: this.newTask,
+                isPresent = this.tasks.find((task) => {
+                    return   task.nome === this.newTask.toLowerCase();
+                   
+                })
+            }
+            if(isPresent) {
+                this.errorMsg = 'Attenzione!! stai provando ad inserire un elemento già presente nella lista'
+            }else {
+                 const newObjTask = {
+                    nome: this.newTask.toLowerCase(),
                     toDo: false
                 }
-                this.tasks.unshift(newObjTask);
-                this.newTask = '';
+                this.tasks.unshift(newObjTask);                
             }
+                this.newTask = '';
+            
         }
     }
 }).mount('#app')
